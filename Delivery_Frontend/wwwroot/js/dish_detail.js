@@ -38,7 +38,52 @@ function init_detail(){
 					}
 				}
             $('#detail-star').html(dish_html)    
+            // check if user has bought the dish
+            var checkUrl = get_url('/dish/' + id + '/rating/check');
+            $.ajax({
+                type: "get",
+                url: checkUrl,
+                headers: get_token(),
+                contentType: 'application/json',
+                success: function (data) {
+                    if (data == true) {
+                        // enable rating feature
+                        var rating_html = '<input type="number" id="rating-input" value="' + 0 + '" min="0" max="10">'
+                            + '<button id="rating-submit" class="btn btn-primary">Submit Rating</button>';
+                        $('#detail-rating').html(rating_html);
 
+                        // bind event to submit rating
+                        $('#rating-submit').on('click', function () {
+                            var newRating = $('#rating-input').val();
+                            var ratingUrl = get_url('/dish/' + id + '/rating') + "?rating=" + parseInt(newRating);
+                            // var postData = { rating: parseInt(newRating) };
+
+                            $.ajax({
+                                type: "post",
+                                url: ratingUrl,
+                                headers: get_token(),
+                                //data: JSON.stringify(postData),
+                                contentType: 'application/json',
+                                success: function () {
+                                    alert('Rating submitted successfully!');
+                                    window.location.reload();
+                                },
+                                error: function (jqXHR, textStatus, errorThrown) {
+                                    alert('Failed to submit rating. Please try again later.');
+                                }
+                            });
+                        });
+
+                    } else {
+                        // disable rating feature
+                        var rating_html = '<p>You need to purchase this dish before you can rate it.</p>';
+                        $('#detail-rating').html(rating_html);
+                    }
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert('Failed to check user status. Please try again later.');
+                }
+            });
         }
     });
 }
