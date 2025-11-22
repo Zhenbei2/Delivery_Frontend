@@ -64,3 +64,6 @@ function confirm(id) {
 		}
 	});
 }
+function viewOrderDetail(id) {
+	window.location.href = '/Home/order_detail/' + id
+}
