@@ -88,3 +88,33 @@ function init_detail(){
     });
 }
 
+function adddetail() {
+
+
+    var data = get_form_json_data('adddetail');
+    console.log(data)
+    console.log(JSON.stringify(data))
+    url = get_url('/dish')
+    $.ajax({
+        url: url,
+        contentType: 'application/json',
+        type: "post",
+        dataType: 'JSON',
+        data: JSON.stringify(data),
+        headers: get_token(),
+        success: function (obj) {
+            alert(obj.message)
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR);
+            var responseText = jqXHR.responseText
+            if (responseText) {
+                json = JSON.parse(responseText)
+                alert(json.title)
+            }
+
+        }
+    });
+
+    return false;
+}
