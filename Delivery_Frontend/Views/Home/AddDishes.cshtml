@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+	<link rel="stylesheet" href="/bootstrap/css/bootstrap.css" />
+	<link rel="stylesheet" href="/css/style.css" />
+	<script src="/js/jquery.js"></script>
+	<script src="/js/dish_detail.js"></script>
+</head>
+<body>
+
+	<div class="container shadow">
+		<h2>Add new Dish</h2>
+		<form id="adddetail"  onsubmit="return adddetail()">
+			<div class="form-group">
+				<label for="name">Name:</label>
+				<input type="text" class="form-control" id="name" name="name"  required>
+			</div>
+			<div class="form-group">
+				<label for="description">description:</label>
+				<input type="text" class="form-control" id="description" name="description"  required>
+			</div>
+
+			<div class="form-group">
+				<label for="price">price:</label>
+				<input type="number" class="form-control" id="price" name="price"  required>
+			</div>
+			<div class="form-group">
+				<label for="image">image:</label>
+				<input type="text" class="form-control" id="image" name="image"  required>
+			</div>
+			<div class="form-group">
+				<label for="name">vegetarian:</label>
+				<select class="form-control" id="vegetarian" name="vegetarian">
+					<option value="true">True</option>
+					<option value="false">False</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="price">rating:</label>
+				<input type="number" value="0" class="form-control" id="rating" name="rating" required>
+			</div>
+
+			<div class="form-group">
+				<label for="name">category:</label>
+				<select class="form-control" id="category" name="category">
+					<option selected value="Wok">Wok</option>
+					<option value="Pizza">Pizza</option>
+					<option value="Soup">Soup</option>
+					<option value="Dessert">Dessert</option>
+					<option value="Drink">Drink</option>
+				</select>
+			</div>
+			
+			<div class="form-group" style="margin-top: 10px;">
+				<button type="submit" class="btn btn-primary">creat dish</button>
+			</div>
+
+		</form>
+	</div>
+
+
+
+
+
+</body>
+</html>
