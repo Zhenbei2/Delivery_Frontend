@@ -26,3 +26,32 @@ function login(){
 	});
 	return false;
 }
+
+function register() {
+
+	var data = get_form_json_data('register')
+	url = get_url('/account/register')
+
+	$.ajax({
+		url: url,
+		contentType: 'application/json',
+		type: "post",
+		dataType: 'JSON',
+		data: JSON.stringify(data),
+		success: function (obj) {
+			alert('Register Success!')
+
+		},
+		error: function (jqXHR, textStatus, errorThrown) {
+			console.log(jqXHR);
+			var responseText = jqXHR.responseText
+			if (responseText) {
+				json = JSON.parse(responseText)
+				alert(json.title)
+			}
+
+		}
+	});
+
+	return false;
+}
