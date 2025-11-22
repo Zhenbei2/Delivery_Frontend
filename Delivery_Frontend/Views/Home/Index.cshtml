@@ -1,8 +1,110 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+	//Layout = "~/Shared/_Layout.cshtml";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title></title>
+	<link rel="stylesheet" href="/bootstrap/css/bootstrap.css" />
+	<link rel="stylesheet" href="/bootstrap-icons-1.10.4/font/bootstrap-icons.css" />
+	<link rel="stylesheet" href="/css/style.css" />
+	<script src="/js/jquery.js"></script>
+
+
+	<link rel="stylesheet" href="/css/bootstrap-select.min.css" />
+	<!-- <script src="/js/jquery-3.7.0.min.js"></script> -->
+	<script src="/js/popper.min.js"></script>
+	<script src="/bootstrap/js/bootstrap.js"></script>
+	<script src="/js/bootstrap-select.min.js"></script>
+
+
+	<script src="/js/index.js"></script>
+
+
+
+</head>
+
+<body onload="init_main()">
+
+	@*	<div id="header">
+		<iframe align="center" width="100%" height="80" src="/Home/nav" frameborder="no" border="0" marginwidth="0"
+				marginheight="0" scrolling="no"></iframe>
+	</div>*@
+
+	<div class="container shadow">
+		<form class="border main-search">
+			<div class="row">
+				<div class="col">
+					<select class="form-control" id="category" multiple>
+						<option selected disabled>Select categories</option>
+						<option value="Wok">Wok</option>
+						<option value="Pizza">Pizza</option>
+						<option value="Soup">Soup</option>
+						<option value="Dessert">Dessert</option>
+						<option value="Drink">Drink</option>
+					</select>
+				</div>
+				<div class="col">
+					<select class="form-control" id="sort">
+						<option style='display: none' value="">sort by</option>
+						<option value="NameAsc">A-Y</option>
+						<option value="NameDesc">Y-A</option>
+						<option value="PriceAsc">Price Ascending</option>
+						<option value="PriceDesc">Price Descending</option>
+						<option value="RatingAsc">Rating Ascending</option>
+						<option value="RatingDesc">Rating Descending</option>
+					</select>
+				</div>
+				<div class="col">
+					<div class="form-check form-switch">
+						<input class="form-check-input" type="checkbox" id="mySwitch" name="darkmode" value="true">
+						<label class="form-check-label" for="mySwitch">Show only vegetarian dishes</label>
+					</div>
+				</div>
+				<div class="col-auto">
+					<input type="button" onclick="init_main()" class="btn btn-primary" value="Apply filters">
+
+					<a class="btn btn-outline-success" href="/Home/AddDishes" id="creatdish" style="display:none" target="_parent">creat dish</a>
+
+				</div>
+			</div>
+		</form>
+		<div class="main-div">
+			<div id="dishes">
+			</div>
+			<div class="page">
+				<nav aria-label="Page navigation example">
+					<ul class="pagination" id='pagination'>
+					</ul>
+				</nav>
+			</div>
+		</div>
+
+
+	</div>
+
+</body>
+
+<script>
+
+
+	$(function () {
+		$('#category').selectpicker();
+		$('#sort').selectpicker();
+	});
+
+	var role = get_role('role');
+
+
+	$(document).ready(function () {
+		if (role == 'Admin') {
+			$("#creatdish").show();
+		}
+	});
+
+</script>
+
+</html>
