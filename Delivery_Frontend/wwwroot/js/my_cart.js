@@ -43,3 +43,58 @@ function init()
 	    }
 	});
 }
+
+
+function reduceNum(id, num) {
+
+	var increase = true
+	if (num == 1) {
+		return
+	}
+	url = get_url('/basket/dish/' + id + '?increase=' + increase)
+	$.ajax({
+
+		url: url,
+		type: "delete",
+		headers: get_token(),
+		contentType: 'application/json',
+		success: function (obj) {
+			init()
+		},
+		error: function (jqXHR, textStatus, errorThrown) {
+			alert('System error')
+		}
+	});
+}
+function remove(id, num) {
+	url = get_url('/basket/dish/' + id + '?increase=false')
+	$.ajax({
+
+		url: url,
+		type: "delete",
+		headers: get_token(),
+		contentType: 'application/json',
+		success: function (obj) {
+			init()
+		},
+		error: function (jqXHR, textStatus, errorThrown) {
+			alert('System error')
+		}
+	});
+}
+function addNum(id, num) {
+	url = get_url('/basket/dish/' + id)
+	$.ajax({
+
+		url: url,
+		type: "post",
+		headers: get_token(),
+		contentType: 'application/json',
+		success: function (obj) {
+			init()
+		},
+		error: function (jqXHR, textStatus, errorThrown) {
+			alert('System error')
+		}
+	});
+}
