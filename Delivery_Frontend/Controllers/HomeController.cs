@@ -1,5 +1,4 @@
 using System.Diagnostics;
-using Delivery_Frontend.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Delivery_Frontend.Controllers
@@ -21,12 +20,6 @@ namespace Delivery_Frontend.Controllers
         public IActionResult Privacy()
         {
             return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }
