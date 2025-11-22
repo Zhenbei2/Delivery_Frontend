@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="/bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet" href="/bootstrap-icons-1.10.4/font/bootstrap-icons.css" />
+		<link rel="stylesheet" href="/css/style.css" />
+		<script src="/js/jquery.js"></script>
+		<script src="/js/my_cart.js"></script>
+	</head>
+	<body onload='init()'>
+@*		<div id="header">
+			<iframe align="center" width="100%" height="80" src="/nav" frameborder="no" border="0" marginwidth="0"
+				marginheight="0" scrolling="no"></iframe>
+		</div>*@
+
+		<div class="container shadow">
+			<h2>Your Cart</h2>
+			<div class="item border" id="carts">
+				<div class="border-bottom cart_food">
+					<div>1.</div>
+					<img class="rounded cart-image"
+						src="https://mistertako.ru/uploads/products/9ee8ed49-8327-11ec-8575-0050569dbef0.">
+					<div class="cart_item_div">
+						<h5>Cheesecake New York</h5>
+						<div>Price:250 ₽/dish</div>
+					</div>
+					<div class="cart_item_add d-flex">
+						<button type="button" class="btn btn-light" onclick="reduceNum('ss')">-</button>
+						<span class="input-group-text" id="basic-addon2">1</span>
+						<button type="button" class="btn btn-light" onclick="reduceNum('ss')">+</button>
+					</div>
+					<div class="remove"> <button class="btn btn-danger" onclick="remove('ss')">Remove</button></div>
+
+				</div>
+
+				<div class="border-bottom cart_food">
+					<div>1.</div>
+					<img class="rounded cart-image"
+						 src="https://mistertako.ru/uploads/products/9ee8ed49-8327-11ec-8575-0050569dbef0.">
+					<div class="cart_item_div">
+						<h5>Cheesecake New York</h5>
+						<div>Price:250 ₽/dish</div>
+					</div>
+					<div class="cart_item_add d-flex">
+						<button type="button" class="btn btn-light">-</button>
+						<span class="input-group-text" id="basic-addon2">1</span>
+						<button type="button" class="btn btn-light">+</button>
+					</div>
+					<div class="remove"> <button class="btn btn-danger">Remove</button></div>
+
+				</div>
+				
+			</div>
+		</div>
+
+	</body>
+</html>
